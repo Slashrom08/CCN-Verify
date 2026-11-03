@@ -6,6 +6,7 @@ import { FicheView } from "@/components/ccn/FicheView";
 import { FicheHeader } from "@/components/ccn/FicheHeader";
 import { findConvention, isCodeTechnique } from "@/lib/ccn/idcc";
 import { getFiche } from "@/lib/ccn/fiches";
+import { getKaliMeta } from "@/lib/ccn/kali";
 import { CODE_TRAVAIL_NUMERIQUE_URL, legifranceSearchUrl } from "@/lib/ccn/legifrance";
 import { BRAND } from "@/lib/brand";
 import { THEMES } from "@/lib/ccn/types";
@@ -23,6 +24,7 @@ export default async function CcnPage({ params }: { params: Params }) {
   const convention = findConvention(idcc);
   if (!convention) notFound();
   const fiche = getFiche(convention.idcc);
+  const kali = getKaliMeta(convention.idcc);
   const technique = isCodeTechnique(convention.idcc);
 
   return (
@@ -35,10 +37,10 @@ export default async function CcnPage({ params }: { params: Params }) {
         <span className="max-w-md truncate text-ink">{fiche?.nomUsage ?? convention.titre}</span>
       </nav>
 
-      <FicheHeader convention={convention} fiche={fiche} technique={technique} />
+      <FicheHeader convention={convention} fiche={fiche} technique={technique} kali={kali} />
 
-      {fiche ? (
-        <FicheView fiche={fiche} />
+      {fiche || kali ? (
+        <FicheView fiche={fiche} idcc={convention.idcc} kali={kali} />
       ) : technique ? (
         <p className="panel p-5 text-sm text-ink">
           Code technique de la DSN : aucun texte conventionnel ne s&rsquo;applique. Les règles maladie – accident sont celles du

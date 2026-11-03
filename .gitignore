@@ -43,3 +43,6 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# données KALI générées au build (npm run kali)
+/public/kali/

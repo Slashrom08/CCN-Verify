@@ -205,7 +205,7 @@ export async function exporterFiche(convention: Convention, fiche: FicheCcn) {
 }
 
 /** Export d'une liste de conventions (résultats de recherche). */
-export async function exporterListe(conventions: Convention[], index: Record<string, { brochure?: string; nomUsage?: string; niveau?: string }>) {
+export async function exporterListe(conventions: Convention[], index: Record<string, { brochure?: string; nomUsage?: string; niveau?: string; fiche?: boolean; texte?: boolean }>) {
   const wb = await classeur();
   feuille(
     wb,
@@ -217,10 +217,11 @@ export async function exporterListe(conventions: Convention[], index: Record<str
       { header: "Brochure", key: "b", width: 10 },
       { header: "Niveau", key: "l", width: 16 },
       { header: "Fiche renseignée", key: "f", width: 16 },
+      { header: "Texte intégral", key: "k", width: 14 },
     ],
     conventions.map((c): Row => {
       const m = index[c.idcc];
-      return [c.idcc, c.titre, m?.nomUsage ?? "", m?.brochure ?? "", m?.niveau ?? niveauDuTitre(c.titre), m ? "Oui" : "Non"];
+      return [c.idcc, c.titre, m?.nomUsage ?? "", m?.brochure ?? "", m?.niveau ?? niveauDuTitre(c.titre), m?.fiche ? "Oui" : "Non", m?.texte ? "Oui" : "Non"];
     }),
   );
   const buf = await wb.xlsx.writeBuffer();

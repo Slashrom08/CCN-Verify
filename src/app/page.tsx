@@ -4,6 +4,7 @@ import { CcnLogo } from "@/components/CcnLogo";
 import { BRAND } from "@/lib/brand";
 import { CONVENTIONS } from "@/lib/ccn/idcc";
 import { listFiches, nbDispositions } from "@/lib/ccn/fiches";
+import { listKali, nbArticlesKali } from "@/lib/ccn/kali";
 import { THEMES } from "@/lib/ccn/types";
 
 const ATOUTS = [
@@ -16,12 +17,12 @@ const ATOUTS = [
     body: "Quinze thèmes, des conditions de travail aux primes. Cochez les populations concernées (ETAM, cadres, ouvriers ou les statuts propres à la branche) et la fiche n'affiche que ce qui s'applique.",
   },
   {
-    title: "Des valeurs vérifiables",
-    body: "Maintien de salaire par tranche d'ancienneté, carence, garanties et cotisations de prévoyance, présentés en tableaux. Un comparatif Code du travail / convention sur les points clés.",
+    title: "Des valeurs vérifiables, sourcées",
+    body: "Maintien de salaire par tranche d'ancienneté, carence, garanties et cotisations de prévoyance, présentés en tableaux avec l'article, l'avenant et la date d'application. Un comparatif Code du travail / convention sur les points clés.",
   },
   {
-    title: "La source à chaque ligne",
-    body: "Chaque disposition cite son article, l'avenant qui l'a modifiée, sa date d'extension et sa date d'application. Le niveau de fiabilité de la fiche est affiché, et le texte officiel est à un clic.",
+    title: "Le texte intégral, article par article",
+    body: "Texte de base, textes attachés et textes salaires tels que publiés sur Légifrance (base KALI), avec l'état de chaque article (en vigueur, étendu, abrogé), une recherche par mots et le lien vers l'article officiel.",
   },
 ];
 
@@ -102,7 +103,7 @@ export default function Landing() {
           <dl className="mx-auto grid max-w-6xl divide-y divide-line px-4 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {[
               { n: CONVENTIONS.length, l: "conventions collectives référencées" },
-              { n: THEMES.length, l: "thèmes suivis par fiche" },
+              { n: Object.keys(listKali()).length, l: `conventions en texte intégral, ${nbArticlesKali().toLocaleString("fr-FR")} articles (Légifrance)` },
               { n: nbDispositions(), l: `dispositions saisies, ${nbFiches} fiche${nbFiches > 1 ? "s" : ""} renseignée${nbFiches > 1 ? "s" : ""}` },
             ].map((c) => (
               <div key={c.l} className="py-6 sm:px-6 first:sm:pl-0 last:sm:pr-0">

@@ -9,7 +9,7 @@ import { useFavoris } from "@/lib/favoris";
 import { exporterListe } from "@/lib/ccn/export";
 import { ExportButton } from "@/components/ExportButton";
 
-export type IndexFiches = Record<string, { brochure?: string; nomUsage?: string; niveau?: string }>;
+export type IndexFiches = Record<string, { brochure?: string; nomUsage?: string; niveau?: string; fiche?: boolean; texte?: boolean; titreCourt?: string }>;
 
 const EXEMPLES = ["1486", "3018", "Syntec", "commerces de gros", "0016"];
 const NIVEAU_LABEL: Record<string, string> = { nationale: "Nationale", regionale: "Régionale", departementale: "Départementale", locale: "Locale" };
@@ -20,7 +20,7 @@ function fold(s: string) {
 
 export function LigneConvention({ c, index }: { c: Convention; index: IndexFiches }) {
   const meta = index[c.idcc];
-  const ok = !!meta;
+  const ok = !!meta?.fiche;
   const niveau = meta?.niveau ?? niveauDuTitre(c.titre);
   return (
     <Link href={`/app/ccn/${c.idcc}`} className="flex items-center gap-4 px-4 py-3 hover:bg-accent-soft">
@@ -35,7 +35,10 @@ export function LigneConvention({ c, index }: { c: Convention; index: IndexFiche
           <span>{NIVEAU_LABEL[niveau]}</span>
         </span>
       </span>
-      <span className={`shrink-0 rounded px-2 py-0.5 text-[11px] font-medium ${ok ? "bg-accent-soft text-accent" : "bg-bg text-muted"}`}>{ok ? "Renseignée" : "À renseigner"}</span>
+      <span className="flex shrink-0 flex-col items-end gap-1">
+        {meta?.texte && <span className="rounded border border-emerald-300 bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-800">Texte intégral</span>}
+        <span className={`rounded px-2 py-0.5 text-[11px] font-medium ${ok ? "bg-accent-soft text-accent" : "bg-bg text-muted"}`}>{ok ? "Fiche renseignée" : "Fiche à renseigner"}</span>
+      </span>
     </Link>
   );
 }
@@ -56,7 +59,7 @@ export function CcnSearch({ index }: { index: IndexFiches }) {
     const t = fold(q.trim());
     if (!t) return [];
     return Object.entries(index)
-      .filter(([, m]) => (m.brochure && /^\d+$/.test(t) && m.brochure === t) || (m.nomUsage && fold(m.nomUsage).includes(t)))
+      .filter(([, m]) => (m.brochure && /^\d+$/.test(t) && m.brochure === t) || (m.nomUsage && fold(m.nomUsage).includes(t)) || (m.titreCourt && t.length >= 3 && fold(m.titreCourt).includes(t)))
       .map(([idcc]) => findConvention(idcc))
       .filter((c): c is Convention => !!c);
   }, [q, index]);
@@ -64,7 +67,7 @@ export function CcnSearch({ index }: { index: IndexFiches }) {
   const results: Convention[] = useMemo(() => {
     const base = q.trim() ? searchConventions(q, 80) : seulementRenseignees ? CONVENTIONS : [];
     const merged = [...parMeta, ...base.filter((c) => !parMeta.some((m) => m.idcc === c.idcc))];
-    return seulementRenseignees ? merged.filter((c) => !!index[c.idcc]) : merged;
+    return seulementRenseignees ? merged.filter((c) => !!index[c.idcc]?.texte || !!index[c.idcc]?.fiche) : merged;
   }, [q, seulementRenseignees, index, parMeta]);
 
   function handleSubmit(e: React.FormEvent) {
@@ -74,7 +77,7 @@ export function CcnSearch({ index }: { index: IndexFiches }) {
   }
 
   const favorisConv = pret ? favoris.map((f) => findConvention(f)).filter((c): c is Convention => !!c) : [];
-  const nbRenseignees = Object.keys(index).length;
+  const nbRenseignees = Object.values(index).filter((m) => m.texte || m.fiche).length;
 
   return (
     <div className="space-y-6">
@@ -110,7 +113,7 @@ export function CcnSearch({ index }: { index: IndexFiches }) {
           </div>
           <label className="flex items-center gap-2 text-xs text-muted">
             <input type="checkbox" checked={seulementRenseignees} onChange={(e) => setSeulementRenseignees(e.target.checked)} className="h-4 w-4 accent-[#1f3b5c]" />
-            Fiches renseignées uniquement ({nbRenseignees})
+            Avec texte intégral ou fiche uniquement ({nbRenseignees})
           </label>
         </div>
       </form>

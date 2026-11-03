@@ -1,5 +1,6 @@
 import type { FicheCcn, Veille } from "../types";
 import { FICHE_1486 } from "./1486";
+import { listKali } from "../kali";
 
 /**
  * Registre des fiches renseignées. Une fiche = un fichier `NNNN.ts`.
@@ -40,6 +41,9 @@ export function veilleGlobale(limit = 6): (Veille & { idcc: string; nomUsage?: s
 }
 
 /** Métadonnées légères pour la recherche côté client. */
-export function indexRecherche(): Record<string, { brochure?: string; nomUsage?: string; niveau?: string }> {
-  return Object.fromEntries(FICHES.map((f) => [f.idcc, { brochure: f.brochure, nomUsage: f.nomUsage, niveau: f.presentation?.niveau }]));
+export function indexRecherche(): Record<string, { brochure?: string; nomUsage?: string; niveau?: string; fiche?: boolean; texte?: boolean; titreCourt?: string }> {
+  const out: Record<string, { brochure?: string; nomUsage?: string; niveau?: string; fiche?: boolean; texte?: boolean; titreCourt?: string }> = {};
+  for (const [idcc, k] of Object.entries(listKali())) out[idcc] = { texte: true, titreCourt: k.titreCourt };
+  for (const f of FICHES) out[f.idcc] = { ...out[f.idcc], brochure: f.brochure, nomUsage: f.nomUsage, niveau: f.presentation?.niveau, fiche: true };
+  return out;
 }

@@ -39,6 +39,20 @@ Variables dans `.env.local` (voir `.env.example`) : `CCN_AUTH_USER`, `CCN_AUTH_P
   « non renseignée » avec les liens Légifrance.
 - `src/lib/decryptages.ts` — articles de fond affichés sur l'accueil de l'outil.
 
+### Texte intégral (Légifrance, base KALI)
+
+`npm run kali` (lancé automatiquement avant `npm run build` via `prebuild`) télécharge l'extraction
+`@socialgouv/kali-data` depuis le registre npm (dump de l'API Légifrance réalisé par la fabrique numérique des
+ministères sociaux, licence Apache 2.0, données DILA en Licence Ouverte), puis écrit :
+
+- `public/kali/NNNN.json` — un fichier par IDCC (texte de base, textes attachés, textes salaires ; sections,
+  articles en HTML, état, liens d'extension / modification). Non versionné, ~105 Mo pour 50 conventions.
+- `src/data/kali-index.json` — index : IDCC → identifiant KALI, titre, nombre d'articles. Versionné.
+
+La version de l'extraction est fixée dans `scripts/import-kali.mjs` (`KALI_DATA_VERSION` pour la surcharger).
+L'extraction ne couvre que les conventions suivies par le Code du travail numérique (50 à ce jour) ; pour les
+autres, il faudra l'API PISTE ou le dépôt complet de la DILA.
+
 ## Écrans
 
 Interface classique : fond pastel uni, cartes blanches, un accent marine (`src/app/globals.css`, variables `--bg`, `--accent`…).
@@ -49,18 +63,21 @@ Interface classique : fond pastel uni, cartes blanches, un accent marine (`src/a
   la matrice thèmes × populations (barres fusionnées quand les dispositions sont identiques, cliquables),
   le sommaire latéral, et les dispositions avec bandes de couleur par population et ligne de référence
   « Article … modifié par … étendu le … applicable à compter du … ». Imprimable.
+- Onglet « Texte intégral » (`src/components/ccn/TexteIntegral.tsx`) sur toute convention présente dans
+  l'index KALI, avec ou sans fiche structurée : sommaire dépliable, état de chaque article, recherche par mots,
+  lien Légifrance par article.
 - Export Excel (`src/lib/ccn/export.ts`, exceljs chargé à la demande) : la fiche complète en cinq onglets
   (Résumé, Maladie-accident, Prévoyance, Dispositions, Champ NAF) et la liste des résultats de recherche.
 - `/app/decryptage` : articles de fond.
 
-La fiche 1486 (Syntec) est un **brouillon de démonstration** : les valeurs sont à relire sur le texte en vigueur.
+La fiche 1486 (Syntec) est saisie sur le texte consolidé de Légifrance (avenant n° 46, accord prévoyance du 27 mars 1997, accord durée du travail du 22 juin 1999) ; chaque disposition renvoie à l'article.
 
 ## Alimentation des fiches (prochaine étape)
 
-Les textes des conventions et des accords de prévoyance sont publics : base KALI sur Légifrance (API PISTE, gratuite sur
-inscription, licence ouverte). La pipeline cible : pour chaque IDCC, récupérer le texte de base et les accords « prévoyance »,
-isoler les articles « maladie – accident / indemnisation des absences » et les garanties, puis produire un fichier `NNNN.ts`
-à relire. Les bases éditoriales privées (synthèses d'éditeurs juridiques) ne sont pas des sources de l'outil : droits d'auteur
+Le texte intégral est disponible pour 50 conventions (voir ci-dessus). La pipeline cible pour les fiches structurées :
+pour chaque IDCC, isoler dans le texte KALI les articles « maladie – accident / indemnisation des absences », les
+garanties de prévoyance et les thèmes suivis, puis produire un fichier `NNNN.ts` à relire. Pour couvrir les autres
+conventions : API Légifrance via PISTE (gratuite sur inscription) ou dépôt complet de la DILA. Les bases éditoriales privées (synthèses d'éditeurs juridiques) ne sont pas des sources de l'outil : droits d'auteur
 et conditions d'utilisation.
 
 ## Déployer sur Netlify

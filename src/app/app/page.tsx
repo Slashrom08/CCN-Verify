@@ -4,6 +4,7 @@ import { CcnSearch } from "@/components/ccn/CcnSearch";
 import { CONVENTIONS } from "@/lib/ccn/idcc";
 import { indexRecherche, listFiches, nbDispositions, veilleGlobale } from "@/lib/ccn/fiches";
 import { DECRYPTAGES } from "@/lib/decryptages";
+import { KALI_DATE, listKali, nbArticlesKali } from "@/lib/ccn/kali";
 import { THEME_LABEL } from "@/lib/ccn/types";
 
 function dateFr(iso: string): string {
@@ -19,7 +20,8 @@ export default function AppPage() {
 
   const chiffres = [
     { n: CONVENTIONS.length, l: "conventions référencées" },
-    { n: fiches.length, l: `fiche${fiches.length > 1 ? "s" : ""} renseignée${fiches.length > 1 ? "s" : ""}` },
+    { n: Object.keys(listKali()).length, l: `conventions avec texte intégral (${nbArticlesKali().toLocaleString("fr-FR")} articles, Légifrance au ${dateFr(KALI_DATE)})` },
+    { n: fiches.length, l: `fiche${fiches.length > 1 ? "s" : ""} structurée${fiches.length > 1 ? "s" : ""}` },
     { n: nbDispositions(), l: "dispositions saisies" },
     { n: derniereMaj ? dateFr(derniereMaj) : "—", l: "dernière mise à jour" },
   ];

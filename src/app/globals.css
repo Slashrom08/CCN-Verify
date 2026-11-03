@@ -151,3 +151,34 @@ body {
     border-color: #cfd6de;
   }
 }
+
+/* ---------- Texte intégral KALI : HTML de la DILA ---------- */
+.kali-html p {
+  margin: 0 0 0.6rem;
+}
+.kali-html ul,
+.kali-html ol {
+  margin: 0 0 0.6rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.kali-html table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.6rem 0;
+  font-size: 0.8125rem;
+}
+.kali-html th,
+.kali-html td {
+  border: 1px solid var(--line);
+  padding: 0.35rem 0.5rem;
+  vertical-align: top;
+}
+.kali-html th {
+  background: #f5f7fa;
+  font-weight: 600;
+}
+.kali-html a {
+  color: var(--link);
+  text-decoration: underline;
+}

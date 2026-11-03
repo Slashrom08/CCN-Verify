@@ -1,0 +1,357 @@
+{
+ "source": "Légifrance, base KALI (DILA), via @socialgouv/kali-data",
+ "version": "3.518.0",
+ "genere": "2026-11-03",
+ "conventions": {
+  "1043": {
+   "id": "KALICONT000005635953",
+   "titre": "Convention collective nationale des gardiens, concierges et employés d'immeubles (réécrite par l'avenant n° 74 du 27 avril 2009 portant modification de la convention)",
+   "titreCourt": "Gardiens, concierges et employés d'immeubles",
+   "articles": 562,
+   "octets": 939547
+  },
+  "1090": {
+   "id": "KALICONT000005635191",
+   "titre": "Convention collective nationale du commerce et de la réparation de l'automobile, du cycle et du motocycle et des activités connexes, ainsi que du contrôle technique automobile du 15 janvier 1981. Etendue par arrêté du 30 octobre 1981 JONC 3 décembre 1981.",
+   "titreCourt": "Services de l'automobile (Commerce et réparation de l'automobile, du cycle et du motocycle, activités connexes, contrôle technique automobile, formation des conducteurs)",
+   "articles": 3334,
+   "octets": 6447318
+  },
+  "1147": {
+   "id": "KALICONT000005635409",
+   "titre": "Convention collective nationale du personnel des cabinets médicaux  du 14 octobre 1981",
+   "titreCourt": "Personnel des cabinets médicaux",
+   "articles": 364,
+   "octets": 628518
+  },
+  "1266": {
+   "id": "KALICONT000005635418",
+   "titre": "Convention collective nationale du personnel des entreprises de restauration de collectivités du 20 juin 1983. Etendue par arrêté du 2 février 1984 JONC 17 février 1984",
+   "titreCourt": "Restauration de collectivités",
+   "articles": 592,
+   "octets": 1343323
+  },
+  "1351": {
+   "id": "KALICONT000005635405",
+   "titre": "Convention collective nationale des entreprises de prévention et de sécurité du 15 février 1985.  Etendue par arrêté du 25 juillet 1985 (JO du 30 juillet 1985)",
+   "titreCourt": "Entreprises de prévention et de sécurité",
+   "articles": 745,
+   "octets": 1432278
+  },
+  "1404": {
+   "id": "KALICONT000005635653",
+   "titre": "Convention collective nationale métropolitaine des entreprises de la maintenance, distribution et location de matériels agricoles, de travaux publics, de bâtiment, de manutention, de motoculture de plaisance et activités connexes, dite SDLM du 23 avril 2012",
+   "titreCourt": "Entreprises de la maintenance, distribution et location de matériels agricoles, de travaux publics, de bâtiment, de manutention, de motoculture de plaisance et activités connexes, dite SDLM",
+   "articles": 903,
+   "octets": 1773634
+  },
+  "1480": {
+   "id": "KALICONT000005635444",
+   "titre": "Convention collective nationale des journalistes du 1er novembre 1976, refondue le 27 octobre 1987.  Etendue par arrêté du 2 février 1988 (JO du 13 février 1988)",
+   "titreCourt": "Journalistes",
+   "articles": 563,
+   "octets": 1099793
+  },
+  "1483": {
+   "id": "KALICONT000005635594",
+   "titre": "Convention collective nationale du commerce de détail de l'habillement et des articles textiles du 25 novembre 1987, révisée par avenant du 17 juin 2004",
+   "titreCourt": "Commerce de détail de l'habillement et des articles textiles",
+   "articles": 530,
+   "octets": 903458
+  },
+  "1486": {
+   "id": "KALICONT000005635173",
+   "titre": "Convention collective nationale des bureaux d'études techniques, des cabinets d'ingénieurs-conseils et des sociétés de conseils du 15 décembre 1987 mise à jour par avenant n° 46 du 16 juillet 2021",
+   "titreCourt": "Bureaux d'études techniques, cabinets d'ingénieurs-conseils et sociétés de conseils",
+   "articles": 1085,
+   "octets": 2450812
+  },
+  "1501": {
+   "id": "KALICONT000005635596",
+   "titre": "Convention collective nationale de la restauration rapide du 18 mars 1988",
+   "titreCourt": "Restauration rapide",
+   "articles": 619,
+   "octets": 1552892
+  },
+  "1505": {
+   "id": "KALICONT000005635421",
+   "titre": "Convention collective nationale du commerce de détail alimentaire non spécialisé du 12 janvier 2021  (Avenant n° 138 du 12 janvier 2021) - Étendue par arrêté du 17 décembre 2021 JORF 23 décembre 2021",
+   "titreCourt": "Commerce de détail alimentaire non spécialisé",
+   "articles": 739,
+   "octets": 1376057
+  },
+  "1516": {
+   "id": "KALICONT000005635435",
+   "titre": "Convention collective nationale des organismes de formation du 10 juin 1988",
+   "titreCourt": "Organismes de formation",
+   "articles": 944,
+   "octets": 1979121
+  },
+  "1517": {
+   "id": "KALICONT000005635870",
+   "titre": "Convention collective nationale des commerces de détail non alimentaires : antiquités, brocante, galeries d'art (œuvres d'art), arts de la table, coutellerie, droguerie, équipement du foyer, bazars, commerces ménagers, modélisme, jeux, jouets, puérinatalité, maroquinerie, instruments de musique, partitions et accessoires, presse et jeux de hasard ou pronostics, produits de la vape du 9 mai 2012 (avenant du 9 mai 2012)",
+   "titreCourt": "Commerces de détail non alimentaires (antiquités, brocante, galeries d'art [œuvres d'art], arts de la table, coutellerie, droguerie, équipement du foyer, bazars, commerces ménagers, modélisme, jeux, jouets, périnatalité et maroquinerie)",
+   "articles": 918,
+   "octets": 2212865
+  },
+  "1518": {
+   "id": "KALICONT000005635177",
+   "titre": "Convention collective nationale des métiers de l'éducation, de la culture, des loisirs et de l'animation agissant pour l'utilité sociale et environnementale, au service des territoires (ÉCLAT) du 28 juin 1988. Étendue par arrêté du 10 janvier 1989 JORF 13 janvier 1989",
+   "titreCourt": "Animation",
+   "articles": 988,
+   "octets": 1773201
+  },
+  "1527": {
+   "id": "KALICONT000005635413",
+   "titre": "Convention collective nationale de l'immobilier, administrateurs de biens, sociétés immobilières, agents immobiliers, etc. (anciennement cabinets d'administrateurs de biens et des sociétés immobilières), du 9 septembre 1988. Etendue par arrêté du 24 février 1989 JORF 3 mars 1989. Mise à jour par avenant  n° 47 du 23 novembre 2010, JORF 18 juillet 2012 puis mise à jour par avenant n° 83 du 2 décembre 2019 étendu par arrêté du 2 juillet 2021 JORF 14 juillet 2021",
+   "titreCourt": "Immobilier : administrateurs de biens, sociétés immobilières, agents immobiliers",
+   "articles": 544,
+   "octets": 1676671
+  },
+  "1596": {
+   "id": "KALICONT000005635221",
+   "titre": "Convention collective nationale des ouvriers employés par les entreprises du bâtiment visées par le décret du 1er mars 1962 (c'est-à-dire occupant jusqu'à 10 salariés) du 8 octobre 1990.",
+   "titreCourt": "Bâtiment Ouvriers (Entreprises occupant jusqu'à 10 salariés)",
+   "articles": 3509,
+   "octets": 4122541
+  },
+  "1597": {
+   "id": "KALICONT000005635220",
+   "titre": "Convention collective nationale des ouvriers employés par les entreprises du bâtiment non visées par le décret du 1er mars 1962 (c'est-à-dire occupant plus de 10 salariés) du 8 octobre 1990. Etendue par arrêté du 8 février 1991 JORF 12 février 1991.",
+   "titreCourt": "Bâtiment Ouvriers (Entreprises occupant plus de 10 salariés)",
+   "articles": 3423,
+   "octets": 3929310
+  },
+  "1606": {
+   "id": "KALICONT000005635871",
+   "titre": "Convention collective nationale du bricolage (vente au détail en libre-service) du 30 septembre 1991",
+   "titreCourt": "Bricolage (vente au détail en libre-service)",
+   "articles": 431,
+   "octets": 1027735
+  },
+  "1672": {
+   "id": "KALICONT000005635918",
+   "titre": "Convention collective nationale des sociétés d'assurances du 27 mai 1992",
+   "titreCourt": "Sociétés d'assurances",
+   "articles": 1185,
+   "octets": 2129895
+  },
+  "1702": {
+   "id": "KALICONT000005635467",
+   "titre": "Convention collective nationale des ouvriers des travaux publics du 15 décembre 1992",
+   "titreCourt": "Travaux publics (Tome II : Ouvriers)",
+   "articles": 3361,
+   "octets": 3365654
+  },
+  "1979": {
+   "id": "KALICONT000005635534",
+   "titre": "Convention collective nationale des hôtels, cafés restaurants (HCR) du 30 avril 1997",
+   "titreCourt": "Hôtels, cafés, restaurants",
+   "articles": 638,
+   "octets": 1412837
+  },
+  "1996": {
+   "id": "KALICONT000005635528",
+   "titre": "Convention collective nationale de la pharmacie d'officine du 3 décembre 1997.  Etendue par arrêté du 13 août 1998 (JO du 8 septembre 1998).",
+   "titreCourt": "Pharmacie d'officine",
+   "articles": 1122,
+   "octets": 3051602
+  },
+  "2098": {
+   "id": "KALICONT000005635550",
+   "titre": "Convention collective nationale du personnel des prestataires de services dans le domaine du secteur tertiaire du 13 août 1999",
+   "titreCourt": "Prestataires de services dans le domaine du secteur tertiaire",
+   "articles": 1399,
+   "octets": 3044999
+  },
+  "2120": {
+   "id": "KALICONT000005635780",
+   "titre": "Convention collective nationale de la banque du 10 janvier 2000.  Etendue par arrêté du 17 novembre 2004 JORF 11 décembre 2004.",
+   "titreCourt": "Banque",
+   "articles": 1037,
+   "octets": 2476515
+  },
+  "2148": {
+   "id": "KALICONT000005635557",
+   "titre": "Convention collective nationale des télécommunications du 26 avril 2000",
+   "titreCourt": "Télécommunications",
+   "articles": 719,
+   "octets": 1424559
+  },
+  "2216": {
+   "id": "KALICONT000005635085",
+   "titre": "Convention collective nationale du commerce de détail et de gros à prédominance alimentaire du 12 juillet 2001",
+   "titreCourt": "Commerce de détail et de gros à prédominance alimentaire",
+   "articles": 987,
+   "octets": 2469914
+  },
+  "2264": {
+   "id": "KALICONT000005635813",
+   "titre": "Convention collective nationale de l'hospitalisation privée du 18 avril 2002",
+   "titreCourt": "Hospitalisation privée",
+   "articles": 1094,
+   "octets": 3075597
+  },
+  "2420": {
+   "id": "KALICONT000017941839",
+   "titre": "Convention collective nationale des cadres du bâtiment du 1er juin 2004",
+   "titreCourt": "Bâtiment Cadres",
+   "articles": 184,
+   "octets": 293736
+  },
+  "2511": {
+   "id": "KALICONT000017577652",
+   "titre": "Convention collective nationale du sport du 7 juillet 2005 étendue par arrêté du 21 novembre 2006",
+   "titreCourt": "Sport",
+   "articles": 860,
+   "octets": 1678754
+  },
+  "2596": {
+   "id": "KALICONT000018563755",
+   "titre": "Convention collective nationale de la coiffure et des professions connexes du 10 juillet 2006. Etendue par arrêté du 3 avril 2007 JORF 17 avril 2007.",
+   "titreCourt": "Coiffure et professions connexes",
+   "articles": 887,
+   "octets": 1337353
+  },
+  "2609": {
+   "id": "KALICONT000018773893",
+   "titre": "Convention collective nationale des employés, techniciens et agents de maîtrise du bâtiment du 12 juillet 2006",
+   "titreCourt": "Bâtiment ETAM",
+   "articles": 1452,
+   "octets": 1772144
+  },
+  "2614": {
+   "id": "KALICONT000018926209",
+   "titre": "Convention collective nationale des employés, techniciens et agents de maîtrise des travaux publics du 12 juillet 2006",
+   "titreCourt": "Travaux publics (Tome III : ETAM)",
+   "articles": 3319,
+   "octets": 3039953
+  },
+  "2941": {
+   "id": "KALICONT000025805800",
+   "titre": "Convention collective nationale de la branche de l'aide, de l'accompagnement, des soins et des services à domicile du 21 mai 2010",
+   "titreCourt": "Aide, accompagnement, soins et services à domicile (BAD)",
+   "articles": 782,
+   "octets": 1922961
+  },
+  "3043": {
+   "id": "KALICONT000027172335",
+   "titre": "Convention collective nationale des entreprises de propreté et services associés du 26 juillet 2011",
+   "titreCourt": "Entreprises de propreté et services associés (26 juillet 2011)",
+   "articles": 648,
+   "octets": 2057667
+  },
+  "3127": {
+   "id": "KALICONT000027084096",
+   "titre": "Convention collective nationale des entreprises de services à la personne du 20 septembre 2012",
+   "titreCourt": "Entreprises de services à la personne",
+   "articles": 328,
+   "octets": 741893
+  },
+  "3239": {
+   "id": "KALICONT000044594539",
+   "titre": "Convention collective de la branche du secteur des particuliers employeurs et de l'emploi à domicile du 15 mars 2021 - Étendue par arrêté du 6 octobre 2021 JORF 16 octobre 2021",
+   "titreCourt": "Particuliers employeurs et emploi à domicile",
+   "articles": 1050,
+   "octets": 1168024
+  },
+  "3248": {
+   "id": "KALICONT000046993250",
+   "titre": "Convention collective nationale de la métallurgie du 7 février 2022 - Étendue par arrêté du 14 décembre 2022 JORF 22 décembre 2022",
+   "titreCourt": "Métallurgie",
+   "articles": 5667,
+   "octets": 8457133
+  },
+  "0176": {
+   "id": "KALICONT000005635184",
+   "titre": "Convention collective nationale de l'industrie pharmaceutique du 6 avril 1956 mise à jour par accord du 11 avril 2019 - Etendue par arrêté du 2 avril 2021 JORF 13 juillet 2021",
+   "titreCourt": "Industrie pharmaceutique",
+   "articles": 1530,
+   "octets": 3340115
+  },
+  "0029": {
+   "id": "KALICONT000005635234",
+   "titre": "Convention collective nationale des établissements privés d'hospitalisation, de soins, de cure et de garde à but non lucratif du 31 octobre 1951.",
+   "titreCourt": "Hospitalisation privée : établissements privés d'hospitalisation, de soins, de cure et de garde à but non lucratif (FEHAP)",
+   "articles": 910,
+   "octets": 1931350
+  },
+  "0573": {
+   "id": "KALICONT000005635373",
+   "titre": "Convention collective nationale de commerces de gros du 23 juin 1970. Etendue par arrêté du 15 juin 1972 JONC 29 août 1972. Mise à jour par accord du 27 septembre 1984 étendu par arrêté du 4 février 1985 JORF 16 février 1985.",
+   "titreCourt": "Commerces de gros",
+   "articles": 569,
+   "octets": 1478466
+  },
+  "0413": {
+   "id": "KALICONT000005635407",
+   "titre": "Convention collective nationale de travail des établissements et services pour personnes inadaptées et handicapées du 15 mars 1966. Mise à jour au 15 septembre 1976.",
+   "titreCourt": "Handicapés : établissements et services pour les personnes inadaptées et handicapées",
+   "articles": 610,
+   "octets": 1091609
+  },
+  "0044": {
+   "id": "KALICONT000005635613",
+   "titre": "Convention collective nationale des industries chimiques et connexes du 30 décembre 1952. Étendue par arrêté du 13 novembre 1956 JONC 12 décembre 1956",
+   "titreCourt": "Industries chimiques et connexes",
+   "articles": 1183,
+   "octets": 1872969
+  },
+  "0675": {
+   "id": "KALICONT000005635617",
+   "titre": "Convention collective nationale des maisons à succursales de vente au détail d'habillement du 30 juin 1972.  Etendue par arrêté du 8 décembre 1972 (JO du 7 janvier 1973).",
+   "titreCourt": "Maisons à succursales de vente au détail d'habillement",
+   "articles": 336,
+   "octets": 705886
+  },
+  "0016": {
+   "id": "KALICONT000005635624",
+   "titre": "Convention collective nationale des transports routiers et activités auxiliaires du transport du 21 décembre 1950",
+   "titreCourt": "Transports routiers et activités auxiliaires du transport",
+   "articles": 2756,
+   "octets": 5126893
+  },
+  "0086": {
+   "id": "KALICONT000005635630",
+   "titre": "Convention collective nationale de travail des cadres, techniciens et employés de la publicité française du 22 avril 1955. Étendue par arrêté du 29 juillet 1955 JORF 19 août 1955",
+   "titreCourt": "Entreprises de la publicité et assimilées",
+   "articles": 670,
+   "octets": 1695395
+  },
+  "0787": {
+   "id": "KALICONT000005635826",
+   "titre": "Convention collective nationale des cabinets d'experts-comptables et de commissaires aux comptes du 9 décembre 1974. Etendue par arrêté du 30 mai 1975 JONC 12 juin 1975.",
+   "titreCourt": "Personnel des cabinets d'experts-comptables et de commissaires aux comptes",
+   "articles": 372,
+   "octets": 666759
+  },
+  "0650": {
+   "id": "KALICONT000005635842",
+   "titre": "Convention collective nationale des ingénieurs et cadres de la métallurgie du 13 mars 1972. Etendue par arrêté du 27 avril 1973 (JO du 29 mai 1973)",
+   "titreCourt": "Métallurgie : ingénieurs et cadres",
+   "articles": 200,
+   "octets": 538394
+  },
+  "0292": {
+   "id": "KALICONT000005635856",
+   "titre": "Convention collective nationale de la plasturgie du 1er  juillet 1960.  Etendue par arrêté du 14 mai 1962 JONC 7 juin 1962 rectificatif 30 juin 1962.",
+   "titreCourt": "Plasturgie",
+   "articles": 755,
+   "octets": 1243281
+  },
+  "0275": {
+   "id": "KALICONT000005635872",
+   "titre": "Convention collective nationale du personnel au sol des entreprises de transport aérien du 22 mai 1959.  Etendue par arrêté du 10 janvier 1964 JONC 21 janvier 1964 et rectificatif JONC 4 février 1964.",
+   "titreCourt": "Transport aérien (personnel au sol)",
+   "articles": 711,
+   "octets": 1240733
+  },
+  "0843": {
+   "id": "KALICONT000005635886",
+   "titre": "Convention collective nationale de la boulangerie-pâtisserie du 19 mars 1976. Etendue par arrêté du 21 juin 1978 JONC 28 juillet 1978.",
+   "titreCourt": "Boulangerie-pâtisserie (entreprises artisanales)",
+   "articles": 1331,
+   "octets": 2068607
+  }
+ }
+}

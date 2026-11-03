@@ -3,6 +3,7 @@
 import type { Convention, FicheCcn } from "@/lib/ccn/types";
 import { useFavoris } from "@/lib/favoris";
 import { legifranceIdccUrl } from "@/lib/ccn/legifrance";
+import { legifranceConventionUrl, type KaliMeta } from "@/lib/ccn/kali";
 import { exporterFiche } from "@/lib/ccn/export";
 import { ExportButton } from "@/components/ExportButton";
 
@@ -13,7 +14,7 @@ const NIVEAU: Record<NonNullable<FicheCcn["presentation"]>["niveau"], string> = 
   locale: "Locale",
 };
 
-export function FicheHeader({ convention, fiche, technique }: { convention: Convention; fiche?: FicheCcn; technique: boolean }) {
+export function FicheHeader({ convention, fiche, technique, kali }: { convention: Convention; fiche?: FicheCcn; technique: boolean; kali?: KaliMeta }) {
   const { est, toggle, pret } = useFavoris();
   const fav = est(convention.idcc);
   const niveau = fiche?.presentation?.niveau ?? "nationale";
@@ -33,6 +34,7 @@ export function FicheHeader({ convention, fiche, technique }: { convention: Conv
             )}
             {!technique && <span className="rounded border border-line px-1.5 py-0.5 text-[11px] font-medium text-ink">{NIVEAU[niveau]}</span>}
             {fiche?.presentation?.etendue && <span className="rounded border border-line bg-accent-soft px-1.5 py-0.5 text-[11px] font-medium text-accent">Étendue</span>}
+            {kali && <span className="rounded border border-emerald-300 bg-emerald-50 px-1.5 py-0.5 text-[11px] font-medium text-emerald-800">Texte intégral · {kali.articles.toLocaleString("fr-FR")} articles</span>}
           </p>
           <h1 className="mt-2 text-xl font-semibold leading-snug text-ink sm:text-2xl">
             {fiche?.nomUsage && <span className="text-accent">{fiche.nomUsage} · </span>}
@@ -48,7 +50,7 @@ export function FicheHeader({ convention, fiche, technique }: { convention: Conv
             {fav ? "★ Favori" : "☆ Favori"}
           </button>
           {!technique && (
-            <a href={legifranceIdccUrl(convention.idcc)} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+            <a href={kali ? legifranceConventionUrl(kali.id) : legifranceIdccUrl(convention.idcc)} target="_blank" rel="noopener noreferrer" className="btn-secondary">
               Légifrance ↗
             </a>
           )}
