@@ -7,9 +7,9 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `${BRAND.name} — Conventions collectives pour la paie et le SIRH`,
+  title: `${BRAND.name} — Vérification des données des conventions collectives`,
   description:
-    "Une fiche par IDCC : présentation, champ d'application, obligations par thème et par population, maintien de salaire, prévoyance. À partir des textes publics des conventions collectives.",
+    "Plateforme de vérification des données conventionnelles pour les professionnels : une fiche par IDCC, obligations par thème et par population, article source et date d'application.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

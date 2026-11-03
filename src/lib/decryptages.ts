@@ -81,7 +81,7 @@ export const DECRYPTAGES: Decryptage[] = [
       {
         titre: "Ce que la paie doit vérifier",
         paragraphes: [
-          "L'ancienneté s'apprécie au premier jour de l'arrêt. Les durées se cumulent sur une période de référence (12 mois glissants, année civile). Le maintien est net ou brut de déductions des IJSS et parfois des prestations de prévoyance. Le non-cadre et le cadre n'ont souvent pas les mêmes paliers. Autant de paramètres à poser dans le SIRH avant la première absence, pas après.",
+          "L'ancienneté s'apprécie au premier jour de l'arrêt. Les durées se cumulent sur une période de référence (12 mois glissants, année civile). Le maintien est net ou brut de déductions des IJSS et parfois des prestations de prévoyance. Le non-cadre et le cadre n'ont souvent pas les mêmes paliers. Autant de paramètres à vérifier avant la première absence, pas après.",
         ],
       },
       {

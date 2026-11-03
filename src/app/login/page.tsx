@@ -54,7 +54,7 @@ export default function LoginPage() {
       <main className="flex flex-1 items-center justify-center px-4 py-12">
         <form onSubmit={handleSubmit} className="panel w-full max-w-sm p-7">
           <h1 className="text-xl font-semibold text-ink">Connexion</h1>
-          <p className="mt-1 text-sm text-muted">Espace réservé aux équipes paie, SIRH et protection sociale.</p>
+          <p className="mt-1 text-sm text-muted">Espace réservé aux utilisateurs autorisés.</p>
 
           <div className="mt-6 space-y-4">
             <div>

@@ -2,8 +2,8 @@
 export const BRAND = {
   name: "CCN Verify",
   wordmark: ["CCN", "Verify"] as const,
-  baseline: "Conventions collectives, lecture paie",
-  tagline: "Les conventions collectives, lues pour la paie et le SIRH.",
+  baseline: "Vérification des données conventionnelles",
+  tagline: "Vérifiez les données de vos conventions collectives.",
   company: "Katena Solutions",
   companyUrl: "https://katena-solutions.fr",
   contactEmail: "contact@katena-solutions.fr",

@@ -30,7 +30,7 @@ export function Presentation({ fiche }: { fiche: FicheCcn }) {
 
       {fiche.vigilance?.length ? (
         <section className="panel p-5 sm:p-6">
-          <h3 className="text-base font-semibold text-accent">Points de vigilance paie / SIRH</h3>
+          <h3 className="text-base font-semibold text-accent">Points de vigilance</h3>
           <Liste items={fiche.vigilance} />
         </section>
       ) : null}

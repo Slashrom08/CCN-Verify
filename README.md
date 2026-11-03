@@ -1,6 +1,6 @@
 # CCN Verify
 
-Suivi des conventions collectives pour la paie, le SIRH et la protection sociale : un IDCC → une fiche
+Plateforme de vérification des données conventionnelles pour les professionnels : un IDCC → une fiche
 « Maladie – Accident » (maintien de salaire employeur) et « Prévoyance complémentaire » (décès, incapacité,
 invalidité), déclinée par statut (cadres / non-cadres, ou statuts propres à la branche), chaque valeur citant
 l'article source.

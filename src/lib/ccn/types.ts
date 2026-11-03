@@ -228,7 +228,7 @@ export interface FicheCcn {
   rubriques: Rubrique[];
   maladieAccident: MaintienSalaire[];
   prevoyance: PrevoyanceComplementaire[];
-  /** Points de vigilance paie / SIRH : ce que l'on regarde tous les jours. */
+  /** Points de vigilance : ce que l'on vérifie avant d'appliquer la convention. */
   vigilance?: string[];
   veille?: Veille[];
   sources: Source[];
