@@ -1,99 +1,106 @@
 @import "tailwindcss";
 
+/* ---------- Palette : fond pastel uni, cartes blanches, un accent marine ---------- */
 :root {
-  --background: #f4f4f9;
-  --foreground: #10111f;
-  --accent: #6366f1;
-  --accent-strong: #4f46e5;
-  --accent-soft: #a5b4fc;
-  --night: #0a0b16;
+  --bg: #e9eff5;
+  --panel: #ffffff;
+  --line: #d5dde7;
+  --ink: #1b2430;
+  --muted: #5b6b7c;
+  --accent: #1f3b5c;
+  --accent-hover: #2b4f78;
+  --accent-soft: #e3ebf5;
+  --link: #1d4ed8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-link: var(--link);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-instrument-serif);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--ink);
 }
 
-/* ---------- Apparition au scroll (fondu + montée) ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
-    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
-  will-change: opacity, transform;
-}
-.reveal.is-in {
-  opacity: 1;
-  transform: none;
+/* ---------- Composants ---------- */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
 }
 
-/* ---------- Fond « lignes de texte » animé ---------- */
-.cv-lines {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'><g stroke='%23818cf8' stroke-opacity='0.14' stroke-width='1.2' stroke-linecap='round'><path d='M30 40h300M30 64h220M30 88h260M30 136h180M30 160h300M30 184h240M30 232h280M30 256h150M30 280h300M30 328h200M30 352h290M30 376h170M30 424h260M30 448h310M30 472h190'/><path d='M370 40h120M370 136h100M370 232h110M370 328h90M370 424h120' stroke-opacity='0.08'/></g></svg>");
-  background-size: 520px 520px;
-  animation: cv-drift 70s linear infinite;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 0.375rem;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 0.55rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  transition: background-color 0.15s ease;
 }
-@keyframes cv-drift {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 260px 520px;
-  }
+.btn:hover {
+  background: var(--accent-hover);
 }
-
-/* Lueur indigo diffuse, respiration lente */
-.cv-glow {
-  background:
-    radial-gradient(60% 50% at 50% 60%, rgba(99, 102, 241, 0.24), transparent 70%),
-    radial-gradient(40% 40% at 20% 20%, rgba(165, 180, 252, 0.08), transparent 70%);
-  animation: cv-breathe 9s ease-in-out infinite alternate;
-}
-@keyframes cv-breathe {
-  from {
-    opacity: 0.7;
-    transform: scale(1);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1.06);
-  }
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .cv-lines,
-  .cv-glow {
-    animation: none;
-  }
-}
-
-/* ---------- Espace outil (fond clair) ---------- */
-.bg-dot-grid {
-  background-image: radial-gradient(rgba(16, 17, 31, 0.09) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-.card-soft {
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--line);
   background: #ffffff;
-  border: 1px solid rgba(16, 17, 31, 0.07);
-  box-shadow:
-    0 1px 2px rgba(16, 17, 31, 0.04),
-    0 12px 32px -16px rgba(16, 17, 31, 0.14);
+  color: var(--ink);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.btn-secondary:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.input {
+  width: 100%;
+  border-radius: 0.375rem;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.875rem;
+  color: var(--ink);
+}
+.input::placeholder {
+  color: #94a3b8;
+}
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(31, 59, 92, 0.15);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
 }
 
 .font-mono-num {
@@ -101,41 +108,38 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Carte verre sur fond nuit (vitrine + connexion) */
-.glass-night {
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+/* Tableaux de données */
+.table {
+  width: 100%;
+  font-size: 0.875rem;
+  border-collapse: collapse;
 }
-
-/* Bouton indigo lumineux */
-.btn-glow {
-  background: #6366f1;
-  color: #ffffff;
-  box-shadow: 0 0 44px -10px rgba(99, 102, 241, 0.95);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
-}
-.btn-glow:hover {
-  transform: scale(1.03);
-  background: #818cf8;
-  box-shadow: 0 0 56px -8px rgba(129, 140, 248, 0.95);
-}
-
-/* ---------- Fiche : titre de thème (bandeau nuit) ---------- */
-.theme-title {
-  display: block;
-  background: var(--night);
-  color: #ffffff;
-  border-radius: 0.9rem;
-  padding: 0.6rem 1.1rem;
-  font-size: 1.05rem;
+.table th {
+  text-align: left;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: var(--muted);
+  background: #f5f7fa;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid #e8edf3;
+  vertical-align: top;
+  color: var(--ink);
+}
+.table tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Titre de thème dans la fiche */
+.theme-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
 }
 
 /* ---------- Impression ---------- */
@@ -143,19 +147,7 @@ body {
   body {
     background: #ffffff;
   }
-  .bg-dot-grid {
-    background-image: none;
-  }
-  .card-soft {
-    box-shadow: none;
-    border-color: #d4d4dc;
-  }
-  .theme-title {
-    background: #e7e7f3;
-    color: #10111f;
-  }
-  header.bg-\[\#0a0b16\],
-  footer {
-    display: none;
+  .panel {
+    border-color: #cfd6de;
   }
 }

@@ -3,14 +3,14 @@ import { STATUT_LABEL, STATUT_ORDER, THEMES } from "./types";
 
 /** Couleur de chaque population : barre à gauche des dispositions, cases du filtre. */
 export const STATUT_COLOR: Record<Statut, string> = {
-  ouvriers: "#78716c",
-  employes: "#a16207",
-  non_cadres: "#a16207",
-  etam: "#0f766e",
-  agents_maitrise: "#0284c7",
-  cadres: "#312e81",
-  autre: "#d97706",
-  tous: "#6366f1",
+  ouvriers: "#8c7b6b",
+  employes: "#b08a2e",
+  non_cadres: "#b08a2e",
+  etam: "#2a8a7a",
+  agents_maitrise: "#3b82c4",
+  cadres: "#1f3b5c",
+  autre: "#c76b2a",
+  tous: "#6b7c8f",
 };
 
 /** Populations de la fiche : celles déclarées, sinon déduites des dispositions. */

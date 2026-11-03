@@ -25,27 +25,27 @@ export default async function DecryptagePage({ params }: { params: Params }) {
 
   return (
     <AppShell>
-      <nav className="flex flex-wrap items-center gap-1.5 text-[11px] uppercase tracking-wide text-slate-500" aria-label="Fil d'Ariane">
-        <Link href="/app" className="hover:text-indigo-700">
+      <nav className="text-xs text-muted" aria-label="Fil d'Ariane">
+        <Link href="/app" className="hover:text-accent">
           Accueil
         </Link>
-        <span aria-hidden>›</span>
-        <span>Décryptage</span>
+        <span className="mx-1.5">›</span>
+        <Link href="/app/decryptage" className="hover:text-accent">
+          Décryptages
+        </Link>
       </nav>
 
-      <article className="card-soft overflow-hidden rounded-3xl">
-        <header className="p-6 sm:p-8" style={{ background: d.couleur }}>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-800/70">Décryptage · mis à jour {d.maj}</p>
-          <h1 className="mt-2 text-2xl font-semibold text-slate-900 sm:text-3xl">{d.titre}</h1>
-          <p className="mt-3 max-w-2xl text-sm text-slate-800">{d.accroche}</p>
-        </header>
-        <div className="space-y-8 p-6 sm:p-8">
+      <article className="panel p-6 sm:p-8">
+        <p className="label">Décryptage · mis à jour {d.maj}</p>
+        <h1 className="mt-2 text-2xl font-semibold text-ink sm:text-3xl">{d.titre}</h1>
+        <p className="mt-3 max-w-2xl text-sm text-muted">{d.accroche}</p>
+        <div className="mt-8 space-y-8 border-t border-line pt-8">
           {d.sections.map((s) => (
             <section key={s.titre}>
-              <h2 className="text-lg font-semibold text-slate-900">{s.titre}</h2>
+              <h2 className="text-lg font-semibold text-accent">{s.titre}</h2>
               <div className="mt-2 space-y-3">
                 {s.paragraphes.map((p, i) => (
-                  <p key={i} className="max-w-3xl text-sm leading-relaxed text-slate-700">
+                  <p key={i} className="max-w-3xl text-sm leading-relaxed text-ink">
                     {p}
                   </p>
                 ))}
@@ -56,13 +56,12 @@ export default async function DecryptagePage({ params }: { params: Params }) {
       </article>
 
       <section>
-        <h2 className="text-sm font-semibold text-slate-800">Autres décryptages</h2>
+        <h2 className="text-sm font-semibold text-ink">Autres décryptages</h2>
         <ul className="mt-3 grid gap-3 sm:grid-cols-2">
           {autres.map((x) => (
             <li key={x.slug}>
-              <Link href={`/app/decryptage/${x.slug}`} className="card-soft block rounded-2xl p-4 hover:border-indigo-300">
-                <span className="mb-2 block h-1.5 w-10 rounded-full" style={{ background: x.couleur }} />
-                <span className="text-sm font-semibold text-slate-900">{x.titre}</span>
+              <Link href={`/app/decryptage/${x.slug}`} className="panel block p-4 hover:border-accent">
+                <span className="text-sm font-semibold text-accent">{x.titre}</span>
               </Link>
             </li>
           ))}

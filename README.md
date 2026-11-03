@@ -41,12 +41,17 @@ Variables dans `.env.local` (voir `.env.example`) : `CCN_AUTH_USER`, `CCN_AUTH_P
 
 ## Écrans
 
+Interface classique : fond pastel uni, cartes blanches, un accent marine (`src/app/globals.css`, variables `--bg`, `--accent`…).
+
 - `/app` : recherche (mot-clé, IDCC, numéro de brochure, nom d'usage), favoris, décryptages, chiffres, veille.
 - `/app/ccn/NNNN` : en-tête (brochure, IDCC, nationale / étendue), trois onglets dans le hash de l'URL :
   `#presentation`, `#champ`, `#obligations`. L'onglet Obligations a le filtre populations (cases à cocher),
   la matrice thèmes × populations (barres fusionnées quand les dispositions sont identiques, cliquables),
   le sommaire latéral, et les dispositions avec bandes de couleur par population et ligne de référence
   « Article … modifié par … étendu le … applicable à compter du … ». Imprimable.
+- Export Excel (`src/lib/ccn/export.ts`, exceljs chargé à la demande) : la fiche complète en cinq onglets
+  (Résumé, Maladie-accident, Prévoyance, Dispositions, Champ NAF) et la liste des résultats de recherche.
+- `/app/decryptage` : articles de fond.
 
 La fiche 1486 (Syntec) est un **brouillon de démonstration** : les valeurs sont à relire sur le texte en vigueur.
 

@@ -38,15 +38,13 @@ export function FicheView({ fiche }: { fiche: FicheCcn }) {
 
   return (
     <div className="space-y-6">
-      <div
-        className={`rounded-2xl border px-4 py-3 text-sm ${brouillon ? "border-amber-200 bg-amber-50 text-amber-900" : "border-indigo-200 bg-indigo-50 text-indigo-900"}`}
-      >
+      <div className={`rounded border px-4 py-2.5 text-sm ${brouillon ? "border-amber-300 bg-amber-50 text-amber-900" : "border-line bg-white text-ink"}`}>
         <span className="font-semibold">{FIABILITE_LABEL[fiche.fiabilite]}</span>
         {brouillon && " : valeurs saisies pour tester l'outil, à relire sur le texte en vigueur avant tout usage en paie."}
-        <span className="ml-2 text-xs opacity-70">Mise à jour {fiche.maj}</span>
+        <span className="ml-2 text-xs text-muted">Mise à jour {fiche.maj}</span>
       </div>
 
-      <div role="tablist" aria-label="Rubriques de la fiche" className="grid grid-cols-3 gap-3 print:hidden">
+      <div role="tablist" aria-label="Rubriques de la fiche" className="flex gap-6 border-b border-line print:hidden">
         {ONGLETS.map((o) => {
           const on = onglet === o.id;
           return (
@@ -55,9 +53,7 @@ export function FicheView({ fiche }: { fiche: FicheCcn }) {
               role="tab"
               aria-selected={on}
               onClick={() => choisir(o.id)}
-              className={`border-b-4 pb-2 text-left text-xs font-semibold uppercase tracking-[0.2em] transition-colors sm:text-sm ${
-                on ? "border-indigo-600 text-indigo-700" : "border-slate-200 text-slate-400 hover:text-slate-700"
-              }`}
+              className={`-mb-px border-b-2 pb-2.5 text-sm font-medium transition-colors ${on ? "border-accent text-accent" : "border-transparent text-muted hover:text-ink"}`}
             >
               {o.label}
             </button>

@@ -27,12 +27,12 @@ export default async function CcnPage({ params }: { params: Params }) {
 
   return (
     <AppShell>
-      <nav className="flex flex-wrap items-center gap-1.5 text-[11px] uppercase tracking-wide text-slate-500 print:hidden" aria-label="Fil d'Ariane">
-        <Link href="/app" className="hover:text-indigo-700">
+      <nav className="flex flex-wrap items-center gap-1.5 text-xs text-muted print:hidden" aria-label="Fil d'Ariane">
+        <Link href="/app" className="hover:text-accent">
           Conventions collectives
         </Link>
         <span aria-hidden>›</span>
-        <span className="max-w-md truncate text-slate-700">{fiche?.nomUsage ?? convention.titre}</span>
+        <span className="max-w-md truncate text-ink">{fiche?.nomUsage ?? convention.titre}</span>
       </nav>
 
       <FicheHeader convention={convention} fiche={fiche} technique={technique} />
@@ -40,32 +40,30 @@ export default async function CcnPage({ params }: { params: Params }) {
       {fiche ? (
         <FicheView fiche={fiche} />
       ) : technique ? (
-        <p className="text-sm text-slate-600">
+        <p className="panel p-5 text-sm text-ink">
           Code technique de la DSN : aucun texte conventionnel ne s&rsquo;applique. Les règles maladie – accident sont celles du
           Code du travail (maintien légal) et il n&rsquo;y a pas de régime de prévoyance de branche.
         </p>
       ) : (
-        <section className="card-soft rounded-3xl p-6 sm:p-8">
-          <p className="inline-block rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-600">
-            Fiche non renseignée
-          </p>
-          <h2 className="mt-3 text-lg font-semibold text-slate-900">Les dispositions de cette convention n&rsquo;ont pas encore été saisies.</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
+        <section className="panel p-6 sm:p-8">
+          <p className="label">Fiche non renseignée</p>
+          <h2 className="mt-2 text-lg font-semibold text-ink">Les dispositions de cette convention n&rsquo;ont pas encore été saisies.</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
             Une fiche se construit à partir du texte publié : présentation (dates, avenants), champ d&rsquo;application (codes NAF)
             et obligations par thème et par population. Elle sera ajoutée sous le code {convention.idcc}.
           </p>
           <ul className="mt-5 flex flex-wrap gap-2">
             {THEMES.map((t) => (
-              <li key={t.id} className="rounded-full border border-slate-200 px-3 py-1 text-[11px] font-medium text-slate-500">
+              <li key={t.id} className="rounded border border-line bg-bg px-2.5 py-1 text-xs text-ink">
                 {t.label}
               </li>
             ))}
           </ul>
-          <p className="mt-6 flex flex-wrap gap-4 text-xs text-slate-500">
-            <a href={legifranceSearchUrl(convention.idcc)} target="_blank" rel="noopener noreferrer" className="text-indigo-700 hover:underline">
+          <p className="mt-6 flex flex-wrap gap-4 text-xs">
+            <a href={legifranceSearchUrl(convention.idcc)} target="_blank" rel="noopener noreferrer" className="text-link hover:underline">
               Rechercher les textes sur Légifrance ↗
             </a>
-            <a href={CODE_TRAVAIL_NUMERIQUE_URL} target="_blank" rel="noopener noreferrer" className="text-indigo-700 hover:underline">
+            <a href={CODE_TRAVAIL_NUMERIQUE_URL} target="_blank" rel="noopener noreferrer" className="text-link hover:underline">
               Code du travail numérique ↗
             </a>
           </p>

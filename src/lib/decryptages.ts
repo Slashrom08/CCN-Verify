@@ -4,7 +4,6 @@ export interface Decryptage {
   titre: string;
   accroche: string;
   maj: string;
-  couleur: string;
   sections: { titre: string; paragraphes: string[] }[];
 }
 
@@ -15,7 +14,6 @@ export const DECRYPTAGES: Decryptage[] = [
     accroche:
       "Un accord conclu entre organisations syndicales de salariés et organisations d'employeurs, qui complète le Code du travail pour un secteur donné.",
     maj: "2026-11",
-    couleur: "#2dfca0",
     sections: [
       {
         titre: "Un texte négocié, pas une loi",
@@ -44,7 +42,6 @@ export const DECRYPTAGES: Decryptage[] = [
     titre: "Quelle convention collective appliquer ?",
     accroche: "L'activité principale réelle de l'entreprise décide, pas le code APE ni la convention que le dirigeant préférerait.",
     maj: "2026-11",
-    couleur: "#ff93d7",
     sections: [
       {
         titre: "Le critère : l'activité principale",
@@ -73,7 +70,6 @@ export const DECRYPTAGES: Decryptage[] = [
     titre: "Maintien de salaire, IJSS et prévoyance : qui paie quoi ?",
     accroche: "En cas d'arrêt maladie, trois acteurs se relaient : la Sécurité sociale, l'employeur, puis l'organisme de prévoyance.",
     maj: "2026-11",
-    couleur: "#ffe55a",
     sections: [
       {
         titre: "Trois couches qui s'empilent",

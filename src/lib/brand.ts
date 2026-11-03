@@ -1,9 +1,9 @@
 /** Identité produit : un seul endroit à modifier pour renommer le service. */
 export const BRAND = {
   name: "CCN Verify",
-  wordmark: ["CCN", "VERIFY"] as const,
-  baseline: "BRANCH INTELLIGENCE",
-  tagline: { italic: "Every branch has its rules,", sans: "just verify." },
+  wordmark: ["CCN", "Verify"] as const,
+  baseline: "Conventions collectives, lecture paie",
+  tagline: "Les conventions collectives, lues pour la paie et le SIRH.",
   company: "Katena Solutions",
   companyUrl: "https://katena-solutions.fr",
   contactEmail: "contact@katena-solutions.fr",
