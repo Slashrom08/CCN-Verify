@@ -92,8 +92,18 @@ export interface MaintienSalaire {
 
 export interface Garantie {
   nom: string;
-  /** Ex. « 100 % du salaire annuel brut », « 80 % du salaire brut sous déduction IJSS ». */
+  /** Ex. « 80 % du salaire brut de référence, sous déduction des prestations de la Sécurité sociale ». */
   montant: string;
+  /** Délai de franchise avant versement : « 90 jours consécutifs d'arrêt de travail ». */
+  franchise?: string;
+  /** Ancienneté minimum pour bénéficier de la garantie : « 1 an ». */
+  ancienneteMin?: string;
+  /** Terme ou durée du versement : « jusqu'au classement en invalidité », « jusqu'à la liquidation de la retraite ». */
+  terme?: string;
+  /** Plafond : « sans excéder le salaire net qu'aurait perçu le salarié ». */
+  plafond?: string;
+  /** Bénéficiaires ou fait générateur quand ils diffèrent du régime : « conjoint, enfants à charge ». */
+  beneficiaires?: string;
   precision?: string;
 }
 
@@ -108,6 +118,8 @@ export interface PrevoyanceComplementaire {
   libelleStatut?: string;
   /** Régime obligatoire de branche, recommandé, ou simple obligation de cotisation. */
   caractere: "obligatoire" | "recommande" | "obligation_cotisation";
+  /** Salaire de référence des prestations : « salaire brut des 12 derniers mois, tranches A et B ». */
+  salaireReference?: string;
   garanties: Garantie[];
   cotisation?: Cotisation;
   organisme?: string;

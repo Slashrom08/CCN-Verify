@@ -130,26 +130,58 @@ export function PrevoyanceCard({ p }: { p: PrevoyanceComplementaire }) {
         <TagStatut statut={p.statut} label={p.libelleStatut} />
       </div>
 
-      <div className="mt-4 overflow-x-auto rounded border border-line">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Garantie</th>
-              <th>Niveau</th>
-            </tr>
-          </thead>
-          <tbody>
-            {p.garanties.map((g) => (
-              <tr key={g.nom}>
-                <td className="font-medium">{g.nom}</td>
-                <td>
-                  {g.montant}
-                  {g.precision && <span className="mt-0.5 block text-xs text-muted">{g.precision}</span>}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      {p.salaireReference && (
+        <dl className="mt-4">
+          <Field label="Salaire de référence">{p.salaireReference}</Field>
+        </dl>
+      )}
+
+      <div className="mt-4 divide-y divide-line rounded border border-line">
+        {p.garanties.map((g) => (
+          <div key={g.nom} className="p-4">
+            <p className="text-sm font-semibold text-accent">{g.nom}</p>
+            <dl className="mt-2 grid gap-x-6 gap-y-3 sm:grid-cols-[10rem_1fr]">
+              {g.franchise && (
+                <>
+                  <dt className="label">Franchise</dt>
+                  <dd className="text-sm text-ink">{g.franchise}</dd>
+                </>
+              )}
+              {g.ancienneteMin && (
+                <>
+                  <dt className="label">Ancienneté minimum</dt>
+                  <dd className="text-sm text-ink">{g.ancienneteMin}</dd>
+                </>
+              )}
+              {g.beneficiaires && (
+                <>
+                  <dt className="label">Bénéficiaires</dt>
+                  <dd className="text-sm text-ink">{g.beneficiaires}</dd>
+                </>
+              )}
+              <dt className="label">Montant</dt>
+              <dd className="text-sm leading-relaxed text-ink">{g.montant}</dd>
+              {g.terme && (
+                <>
+                  <dt className="label">Terme</dt>
+                  <dd className="text-sm text-ink">{g.terme}</dd>
+                </>
+              )}
+              {g.plafond && (
+                <>
+                  <dt className="label">Plafond</dt>
+                  <dd className="text-sm text-ink">{g.plafond}</dd>
+                </>
+              )}
+              {g.precision && (
+                <>
+                  <dt className="label">Précision</dt>
+                  <dd className="text-sm text-muted">{g.precision}</dd>
+                </>
+              )}
+            </dl>
+          </div>
+        ))}
       </div>
 
       {p.cotisation && (
