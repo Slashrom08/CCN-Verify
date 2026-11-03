@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f4f9;
+  --foreground: #10111f;
+  --accent: #6366f1;
+  --accent-strong: #4f46e5;
+  --accent-soft: #a5b4fc;
+  --night: #0a0b16;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* ---------- Apparition au scroll (fondu + montée) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Fond « lignes de texte » animé ---------- */
+.cv-lines {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='520' viewBox='0 0 520 520'><g stroke='%23818cf8' stroke-opacity='0.14' stroke-width='1.2' stroke-linecap='round'><path d='M30 40h300M30 64h220M30 88h260M30 136h180M30 160h300M30 184h240M30 232h280M30 256h150M30 280h300M30 328h200M30 352h290M30 376h170M30 424h260M30 448h310M30 472h190'/><path d='M370 40h120M370 136h100M370 232h110M370 328h90M370 424h120' stroke-opacity='0.08'/></g></svg>");
+  background-size: 520px 520px;
+  animation: cv-drift 70s linear infinite;
+}
+@keyframes cv-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 260px 520px;
+  }
+}
+
+/* Lueur indigo diffuse, respiration lente */
+.cv-glow {
+  background:
+    radial-gradient(60% 50% at 50% 60%, rgba(99, 102, 241, 0.24), transparent 70%),
+    radial-gradient(40% 40% at 20% 20%, rgba(165, 180, 252, 0.08), transparent 70%);
+  animation: cv-breathe 9s ease-in-out infinite alternate;
+}
+@keyframes cv-breathe {
+  from {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .cv-lines,
+  .cv-glow {
+    animation: none;
+  }
+}
+
+/* ---------- Espace outil (fond clair) ---------- */
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(16, 17, 31, 0.09) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.card-soft {
+  background: #ffffff;
+  border: 1px solid rgba(16, 17, 31, 0.07);
+  box-shadow:
+    0 1px 2px rgba(16, 17, 31, 0.04),
+    0 12px 32px -16px rgba(16, 17, 31, 0.14);
+}
+
+.font-mono-num {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Carte verre sur fond nuit (vitrine + connexion) */
+.glass-night {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Bouton indigo lumineux */
+.btn-glow {
+  background: #6366f1;
+  color: #ffffff;
+  box-shadow: 0 0 44px -10px rgba(99, 102, 241, 0.95);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+.btn-glow:hover {
+  transform: scale(1.03);
+  background: #818cf8;
+  box-shadow: 0 0 56px -8px rgba(129, 140, 248, 0.95);
+}
