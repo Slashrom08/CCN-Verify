@@ -1,0 +1,11 @@
+# Déploiement Netlify — CCN Verify (Next.js 16)
+# Le runtime Next.js de Netlify est détecté automatiquement ; ce fichier rend la config explicite.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

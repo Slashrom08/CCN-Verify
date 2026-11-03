@@ -41,7 +41,21 @@ isoler les articles « maladie – accident / indemnisation des absences » et l
 à relire. Les bases éditoriales privées (synthèses d'éditeurs juridiques) ne sont pas des sources de l'outil : droits d'auteur
 et conditions d'utilisation.
 
+## Déployer sur Netlify
+
+1. Sur [app.netlify.com](https://app.netlify.com) : « Add new site » → « Import an existing project » → GitHub → dépôt
+   `Slashrom08/CCN-Verify`. Choisir la branche à déployer (`main` ou la branche de travail).
+2. Netlify détecte Next.js ; `netlify.toml` fixe la commande (`npm run build`) et Node 22. Rien à changer.
+3. Avant le premier build, dans « Site configuration » → « Environment variables », ajouter :
+   - `CCN_AUTH_USER` : identifiant à donner aux personnes autorisées
+   - `CCN_AUTH_PASSWORD` : mot de passe associé
+   - `AUTH_SESSION_SECRET` : chaîne aléatoire longue (ex. `openssl rand -hex 32`), sert à signer le cookie de session
+4. « Deploy ». Le site est servi sur `https://<nom>.netlify.app` ; le nom se change dans « Site configuration » → « Site details ».
+
+Chaque push sur la branche choisie redéploie automatiquement. Pour partager l'accès, transmettre l'URL et le couple
+identifiant / mot de passe.
+
 ## Notes
 
 - Codes 5100, 9998, 9999 : codes techniques DSN, sans texte conventionnel.
-- Aucun déploiement, aucune base de données (V1). Même socle que Terra Verify : Next.js 16, Tailwind 4, Netlify prévu.
+- Aucune base de données (V1). Même socle que Terra Verify : Next.js 16, Tailwind 4, déploiement Netlify.
