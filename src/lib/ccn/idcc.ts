@@ -41,6 +41,15 @@ function fold(s: string): string {
     .toLowerCase();
 }
 
+/** Niveau déduit du titre officiel : la liste du ministère ne le code pas à part. */
+export function niveauDuTitre(titre: string): "nationale" | "regionale" | "departementale" | "locale" {
+  const t = fold(titre);
+  if (/\bdepartementale?\b|\bdu departement\b/.test(t)) return "departementale";
+  if (/\bregionale?\b|\bde la region\b/.test(t)) return "regionale";
+  if (/\blocale?\b|\bde la ville\b|\bdu port\b/.test(t)) return "locale";
+  return "nationale";
+}
+
 /** Recherche par code ou par mots du titre (tous les mots doivent apparaître). */
 export function searchConventions(query: string, limit = 50): Convention[] {
   const q = query.trim();

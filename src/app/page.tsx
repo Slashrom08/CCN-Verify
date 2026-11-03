@@ -21,27 +21,27 @@ const PILLARS = [
   {
     n: "02",
     tag: "EXTRAIRE",
-    title: "Deux dispositions, toujours les mêmes",
-    body: "Maladie – accident (maintien de salaire employeur) et prévoyance complémentaire (décès, incapacité, invalidité). Ce que la paie et la protection sociale consultent tous les jours.",
+    title: "Quinze thèmes, deux au cœur",
+    body: "Conditions de travail, congés, durée du travail, licenciement, maladie – accident, prévoyance, classifications, salaires… Les deux thèmes paie sont saisis en valeurs structurées : paliers, garanties, cotisations.",
   },
   {
     n: "03",
     tag: "DÉCLINER",
-    title: "Par statut, cadres et non-cadres",
-    body: "Ancienneté requise, carence, paliers de durée et de taux, base de calcul : chaque valeur est lue séparément pour les cadres et les non-cadres, ou pour les statuts propres à la branche.",
+    title: "Par population, d'un clic",
+    body: "Cochez ETAM, cadres, ouvriers ou les statuts propres à la branche : la matrice thèmes × populations et chaque disposition se filtrent. Une bande de couleur dit à qui s'applique chaque paragraphe.",
   },
   {
     n: "04",
     tag: "SOURCER",
     title: "L'article, pas l'interprétation",
-    body: "Chaque donnée renvoie à l'article de la convention ou de l'accord dont elle vient, et le niveau de fiabilité de la fiche est affiché : vérifiée sur le texte, ou brouillon à valider.",
+    body: "Chaque disposition cite son article, l'avenant qui l'a modifiée, sa date d'extension et sa date d'application. Un comparatif Code du travail / convention met le légal et le conventionnel côte à côte.",
   },
 ];
 
 const STEPS = [
   { title: "Saisissez l'IDCC", body: "Ou quelques mots du titre : « commerces de gros », « bureaux d'études »." },
-  { title: "Choisissez le statut", body: "Cadres ou non-cadres ; ouvriers, ETAM, employés quand la branche les distingue." },
-  { title: "Lisez la fiche", body: "Maintien de salaire par tranche d'ancienneté, garanties et cotisations de prévoyance." },
+  { title: "Cochez les populations", body: "ETAM, cadres, ouvriers, employés : la fiche n'affiche que ce qui s'applique." },
+  { title: "Lisez la fiche", body: "Présentation, champ d'application (codes NAF), obligations par thème, comparatif loi / convention." },
   { title: "Remontez à la source", body: "Un lien vers Légifrance par convention, l'article cité pour chaque valeur." },
 ];
 
@@ -205,7 +205,7 @@ export default function Landing() {
             </Reveal>
             <Reveal delay={120}>
               <Eyebrow>Dispositions suivies</Eyebrow>
-              <h2 className="mt-4 font-serif text-4xl italic text-white sm:text-5xl">Dix champs, deux statuts</h2>
+              <h2 className="mt-4 font-serif text-4xl italic text-white sm:text-5xl">Dix champs paie, quinze thèmes</h2>
               <p className="mt-4 max-w-md text-base leading-relaxed text-slate-400">
                 La fiche se lit en colonnes : cadres d&rsquo;un côté, non-cadres de l&rsquo;autre. Quand la branche
                 distingue ouvriers, employés ou ETAM, les colonnes suivent la convention.

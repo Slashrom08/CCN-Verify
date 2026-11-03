@@ -124,3 +124,38 @@ body {
   background: #818cf8;
   box-shadow: 0 0 56px -8px rgba(129, 140, 248, 0.95);
 }
+
+/* ---------- Fiche : titre de thème (bandeau nuit) ---------- */
+.theme-title {
+  display: block;
+  background: var(--night);
+  color: #ffffff;
+  border-radius: 0.9rem;
+  padding: 0.6rem 1.1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Impression ---------- */
+@media print {
+  body {
+    background: #ffffff;
+  }
+  .bg-dot-grid {
+    background-image: none;
+  }
+  .card-soft {
+    box-shadow: none;
+    border-color: #d4d4dc;
+  }
+  .theme-title {
+    background: #e7e7f3;
+    color: #10111f;
+  }
+  header.bg-\[\#0a0b16\],
+  footer {
+    display: none;
+  }
+}

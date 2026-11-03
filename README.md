@@ -26,10 +26,27 @@ Variables dans `.env.local` (voir `.env.example`) : `CCN_AUTH_USER`, `CCN_AUTH_P
 
 - `src/data/idcc.json` — liste officielle des IDCC (ministère du Travail, octobre 2024, 630 codes), extraite du PDF
   « Liste des conventions collectives et de leur code IDCC ». Régénérable avec `pdftotext -layout` + le script de parsing.
-- `src/lib/ccn/types.ts` — modèle d'une fiche : `MaintienSalaire[]` et `PrevoyanceComplementaire[]`, un élément par statut,
-  `fiabilite` (`verifie` | `brouillon`), sources.
+- `src/lib/ccn/types.ts` — modèle d'une fiche :
+  - `populations` : statuts distingués par la branche (ETAM, cadres, ouvriers…), avec libellé propre ;
+  - `presentation` : dates de signature et d'extension, avenants qui actualisent le texte, dernière veille ;
+  - `champApplication` : textes de référence, territorial, professionnel (groupes de codes NAF), personnels particuliers, fusions ;
+  - `rubriques` : 15 thèmes fixes (`THEMES`), chacun avec des dispositions `{ titre, populations, reference, blocs }`.
+    Un bloc est un texte, une liste, un tableau ou un comparatif `loi_ccn` (Code du travail / convention) ;
+  - `maladieAccident` et `prevoyance` : saisie structurée des deux thèmes paie (paliers, garanties, cotisations),
+    affichée en tête de ces thèmes ;
+  - `veille` : fil des mises à jour de la fiche ; `fiabilite` (`verifie` | `brouillon`) ; sources.
 - `src/lib/ccn/fiches/NNNN.ts` — une fiche par IDCC, enregistrée dans `fiches/index.ts`. Les IDCC sans fiche s'affichent
   « non renseignée » avec les liens Légifrance.
+- `src/lib/decryptages.ts` — articles de fond affichés sur l'accueil de l'outil.
+
+## Écrans
+
+- `/app` : recherche (mot-clé, IDCC, numéro de brochure, nom d'usage), favoris, décryptages, chiffres, veille.
+- `/app/ccn/NNNN` : en-tête (brochure, IDCC, nationale / étendue), trois onglets dans le hash de l'URL :
+  `#presentation`, `#champ`, `#obligations`. L'onglet Obligations a le filtre populations (cases à cocher),
+  la matrice thèmes × populations (barres fusionnées quand les dispositions sont identiques, cliquables),
+  le sommaire latéral, et les dispositions avec bandes de couleur par population et ligne de référence
+  « Article … modifié par … étendu le … applicable à compter du … ». Imprimable.
 
 La fiche 1486 (Syntec) est un **brouillon de démonstration** : les valeurs sont à relire sur le texte en vigueur.
 
